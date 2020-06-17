@@ -1,0 +1,37 @@
+# default config
+app:
+  name: ^project.name^
+  artifactid: ^project.artifactId^
+  version: ^project.version^
+  timestamp: ^timestamp^
+
+server:
+  port: 8080
+  servlet.context-path: /toolkit
+
+spring:
+  application:
+    name: Dev SandBox - Toolkit
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        hbm2ddl.auto: none # create-drop -- first launch | test only
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: validate
+    show-sql: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/toolkit?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: p@ssw0rd
+    hikari:
+      connection-test-query: SELECT 1
+      auto-commit: false
+      data-source-j-n-d-i: jdbc/toolkit
+      connection-timeout: 30000
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
