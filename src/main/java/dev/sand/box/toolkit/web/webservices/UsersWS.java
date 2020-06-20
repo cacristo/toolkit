@@ -4,6 +4,7 @@ import dev.sand.box.toolkit.entity.user.User;
 import dev.sand.box.toolkit.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +19,8 @@ import java.util.List;
 public class UsersWS {
     private static final Logger LOG = LoggerFactory.getLogger(UsersWS.class);
 
-    private final UserService userService;
-
-    public UsersWS(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public List<User> getAllDTOUsers() {
