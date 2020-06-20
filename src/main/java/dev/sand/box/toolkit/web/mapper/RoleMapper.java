@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Mapper to transform {@link Role} <> {@link RoleDTO}
  */
-@Mapper
+@Mapper(config = MapperConfig.class)
 public interface RoleMapper {
     /**
      * Instance of the interface implementation

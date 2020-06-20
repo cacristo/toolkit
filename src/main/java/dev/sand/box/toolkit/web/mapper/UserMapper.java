@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 /**
  * Mapper to transform {@link User} <> {@link UserDTO}
  */
-@Mapper
+@Mapper(config = MapperConfig.class)
 public interface UserMapper {
     /**
      * Instance of the interface implementation
