@@ -1,7 +1,8 @@
 package dev.sand.box.toolkit.web.webservices;
 
-import dev.sand.box.toolkit.entity.role.Role;
 import dev.sand.box.toolkit.service.role.RoleService;
+import dev.sand.box.toolkit.web.dto.RoleDTO;
+import dev.sand.box.toolkit.web.mapper.RoleMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,12 @@ public class RolesWS {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private RoleMapper roleMapper;
+
     @GetMapping
-    public List<Role> getAllDTORoles() {
+    public List<RoleDTO> getAllDTORoles() {
         LOG.info("GET /all-roles");
-        return roleService.allRoles();
+        return roleMapper.toDTOList(roleService.allRoles());
     }
 }

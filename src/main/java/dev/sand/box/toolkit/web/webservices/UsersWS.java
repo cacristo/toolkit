@@ -2,6 +2,9 @@ package dev.sand.box.toolkit.web.webservices;
 
 import dev.sand.box.toolkit.entity.user.User;
 import dev.sand.box.toolkit.service.user.UserService;
+import dev.sand.box.toolkit.web.dto.UserDTO;
+import dev.sand.box.toolkit.web.dto.UserQuickSearchDTO;
+import dev.sand.box.toolkit.web.mapper.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +25,18 @@ public class UsersWS {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping
-    public List<User> getAllDTOUsers() {
+    public List<UserDTO> getAllDTOUsers() {
         LOG.info("GET /all-users");
-        return userService.allUsers();
+        return userMapper.toDTOList(userService.allUsers());
     }
 
     @GetMapping("/quick-search")
-    public List<User> getAllQuickSearchUsers() {
+    public List<UserQuickSearchDTO> getAllQuickSearchUsers() {
         LOG.info("GET /quick-search");
-        return userService.allUsers();
+        return userMapper.toUserQuickSearchDTOList(userService.allUsers());
     }
 }
