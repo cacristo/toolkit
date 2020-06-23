@@ -16,14 +16,4 @@ public interface UserService {
      * @return {@link List <User>}
      */
     List<User> allUsers();
-
-    /**
-     * Edit an {@link User}.
-     *
-     * @return {@link List <User>}
-     */
-    User edit(User entity);
-
-    User create(User entity);
-
 }

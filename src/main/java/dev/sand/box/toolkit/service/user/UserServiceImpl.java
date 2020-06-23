@@ -6,7 +6,6 @@ import dev.sand.box.toolkit.service.AbstractService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Service to manage {@link User} object
@@ -32,20 +31,5 @@ public class UserServiceImpl extends AbstractService<UserRepository, User, Long>
     @Override
     public List<User> allUsers() {
         return getRepository().findAll();
-    }
-
-    /**
-     * @see UserService#edit(User) for more information
-     */
-    @Override
-    public User edit(User users) {
-        User entitySaved = null;
-        Optional<User> optionalUser = getRepository().findById(users.getId());
-        if (optionalUser.isPresent()) {
-            User entity = optionalUser.get();
-            entity.setRole(users.getRole());
-            entitySaved = getRepository().save(entity);
-        }
-        return entitySaved;
     }
 }
