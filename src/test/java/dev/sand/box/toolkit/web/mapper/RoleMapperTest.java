@@ -93,11 +93,11 @@ public class RoleMapperTest {
         // item 0
         assertThat(roleDTOList.get(0).getCode()).isEqualTo("ADM");
         assertThat(roleDTOList.get(0).getName()).isEqualTo("Administrator");
-        //assertThat(roleDTOList.get(0).isHasRights()).isTrue();
+        assertThat(roleDTOList.get(0).isHasRights()).isTrue();
 
         // item 1
         assertThat(roleDTOList.get(1).getCode()).isEqualTo("CTR");
         assertThat(roleDTOList.get(1).getName()).isEqualTo("Controller");
-        //assertThat(roleDTOList.get(1).isHasRights()).isFalse();
+        assertThat(roleDTOList.get(1).isHasRights()).isFalse();
     }
 }
