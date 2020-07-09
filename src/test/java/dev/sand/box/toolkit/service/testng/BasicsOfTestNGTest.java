@@ -2,8 +2,7 @@ package dev.sand.box.toolkit.service.testng;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -20,6 +19,36 @@ public class BasicsOfTestNGTest {
                 {2},
                 {3}
         };
+    }
+
+    @BeforeClass
+    public void setUp() {
+        LOG.info("@BeforeClass");
+    }
+
+    @AfterClass
+    public void destroy() {
+        LOG.info("@AfterClass");
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        LOG.info("@BeforeMethod");
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        LOG.info("@AfterMethod");
+    }
+
+    @BeforeTest
+    public void beforeTest() {
+        LOG.info("@BeforeTest");
+    }
+
+    @AfterTest
+    public void afterTest() {
+        LOG.info("@AfterTest");
     }
 
     @Test(enabled = false)
